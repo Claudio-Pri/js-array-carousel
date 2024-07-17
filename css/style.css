@@ -2,9 +2,39 @@
     RESET
 */
 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
 /* 
     GENERAL
 */
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 200px 0;
+}
 
+.img-container {
+    width: 700px;
+    margin: 0 auto;
+
+}
+
+img {
+    max-width: 100%;
+
+}
 
 /* DEBUG */
+
+.debug .container {
+    background-color: lavender;
+
+}
