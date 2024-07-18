@@ -1,39 +1,51 @@
 
 // `
 
-//dichiarazione array url immagini
-// let myImage = ["img/fantasy-1.jpeg", "img/fantasy-2.jpeg", "img/fantasy-3.jpeg", "img/fantasy-4.jpeg", "img/fantasy-5.jpeg",];
+//CONTAINER E ARRAY
+const imgContainer = document.querySelector('.img-container');
+// console.log('img container', imgContainer, typeof imgContainer);
+let myImage = ["img/fantasy-1.jpeg", "img/fantasy-2.jpeg", "img/fantasy-3.jpeg", "img/fantasy-4.jpeg", "img/fantasy-5.jpeg",];
 
-// const myContainer = document.querySelector('.img-container');
+for (let i = 0; i < myImage.length; i++) {
 
-// let j = 0;
-// const nextBtn = document.getElementById('next-btn');
-// const prevBtn = document.getElementById('prev-btn');
+    if (i == 0) {
+        imgContainer.innerHTML += `<img src="${myImage[i]}" class="active" alt="image">`
+    }
+    else {
+        imgContainer.innerHTML += `<img src="${myImage[i]}" alt="image">`
+    }
+};
 
-// nextBtn.addEventListener('click',
-//     function () {
-//         j++
-//     }
-// )
+//BUTTONS
+const nextBtn = document.getElementById("next-button");
+const prevBtn = document.getElementById("prev-button");
+let activeImg = 1;
 
-// for (i = 0; i < myImage.length; i++) {
-//     console.log(myImage[i]);
-//     myContainer.innerHTML += `
-//     <div class="item">
+nextBtn.addEventListener('click',
+    function () {
+        // console.log('next');
+        if (activeImg < myImage.length) {
+            // al click activeImg avrà valore x
+            // tolgo all' elemento x la classe active
+            document.querySelector('.img-container > img:nth-child(' + activeImg + ')').classList.remove('active');
+            // incremento x
+            activeImg++;
+            // aggiungo a x la classe active
+            document.querySelector('.img-container > img:nth-child(' + activeImg + ')').classList.add('active');
+        }
 
-//         <img src="${myImage[j]}" class="image ${(j == i) ? 'd-block' : 'd-none'}" alt="image">
+    }
+);
 
-//     </div>
-// `;
-//inserire event listener su buttons per j++ e j--
-// }
-
-//====== CORREZIONE ========
-
-
-
-
-
+prevBtn.addEventListener('click',
+    function () {
+        if (activeImg > 1) {
+            document.querySelector('.img-container > img:nth-child(' + activeImg + ')').classList.remove('active');
+            activeImg--;
+            document.querySelector('.img-container > img:nth-child(' + activeImg + ')').classList.add('active');
+        }
+    }
+);
 
 
 
